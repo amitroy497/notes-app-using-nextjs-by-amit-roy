@@ -1,12 +1,13 @@
-import Link from 'next/link';
+import AllNotes from './allNotes/page';
+import NavBar from './components/NavBar';
 
 export default function Home() {
 	return (
-		<main className='flex min-h-screen flex-col items-center justify-between p-24'>
-			<article className='dark:text-red-800'>
-				Notes App by Amit Roy using Next.js
-				<Link href='/allNotes'>AllNotes</Link>
-			</article>
+		<main className='screenHeight relative'>
+			{/* Notes App by Amit Roy using Next.js */}
+			<AllNotes />
+			{/* <Link href='/allNotes'>AllNotes</Link> */}
+			<NavBar />
 		</main>
 	);
 }

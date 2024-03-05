@@ -1,10 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
 import { GrEdit } from 'react-icons/gr';
 
-import { currentFormatDateTime, DarkThemeYellow } from '@/lib/constants';
+import { currentFormatDateTime } from '@/lib/constants';
 
+import { ButtonTheme } from '../ButtonTheme';
 import DeleteTile from '../DeleteTile';
 
 type NoteTileProps = {
@@ -23,6 +25,7 @@ const NoteTile = ({
 	fetchNotes,
 }: NoteTileProps) => {
 	const router = useRouter();
+	const { theme } = useTheme();
 
 	const onlyDate = date.substring(0, date.indexOf(','));
 
@@ -39,7 +42,7 @@ const NoteTile = ({
 			</section>
 			<section className='flex justify-between items-center gap-2'>
 				<GrEdit
-					color={DarkThemeYellow}
+					color={ButtonTheme()}
 					size='15px'
 					className='cursor-pointer'
 					onClick={() => router.push(`/allNotes/${id}`)}

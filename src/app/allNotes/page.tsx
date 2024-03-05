@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 
 import AddButton from '../components/AddButton';
 import AllNoteTiles from '../components/AllNoteTiles';
+import FooterButtons from '../components/NavBar';
 import Search from '../components/Search';
 
 const AllNotes = () => {

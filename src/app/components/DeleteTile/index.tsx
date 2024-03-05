@@ -2,7 +2,7 @@
 
 import { RiDeleteBin2Line } from 'react-icons/ri';
 
-import { DarkThemeYellow } from '@/lib/constants';
+import { ButtonTheme } from '../ButtonTheme';
 
 type DeleteTileProps = {
 	id: string;
@@ -29,7 +29,7 @@ const DeleteTile = ({ id, fetchNotes }: DeleteTileProps) => {
 	return (
 		<div>
 			<RiDeleteBin2Line
-				color={DarkThemeYellow}
+				color={ButtonTheme()}
 				size='15px'
 				className='cursor-pointer'
 				onClick={deleteData}
