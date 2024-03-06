@@ -2,7 +2,6 @@
 import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import dayjs from 'dayjs';
 import { FaCheck } from 'react-icons/fa6';
 import { GoArrowLeft } from 'react-icons/go';
 import { RiShareLine } from 'react-icons/ri';
@@ -30,7 +29,7 @@ const NotePage = () => {
 	}, []);
 
 	const handleClick = () => {
-		router.push('/allNotes');
+		router.push('/');
 	};
 
 	const handleSubmit = async () => {
@@ -47,7 +46,7 @@ const NotePage = () => {
 		});
 		const response = await data.json();
 		if (response.success) {
-			return router.push('/allNotes');
+			return router.push('/');
 		}
 		return alert('Error, please try again');
 	};
@@ -55,7 +54,7 @@ const NotePage = () => {
 	return (
 		<>
 			<div className='flex justify-between items-center my-2 py-2'>
-				<Link href='/allNotes' className='cursor-pointer' onClick={handleClick}>
+				<Link href='/' className='cursor-pointer' onClick={handleClick}>
 					<GoArrowLeft size='30px' />
 				</Link>
 				<RiShareLine size='30px' className='cursor-pointer' />

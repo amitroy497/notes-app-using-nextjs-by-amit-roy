@@ -66,13 +66,13 @@ const UpdateNote = ({ params }: UpdateNoteProps) => {
 		);
 		const response = await data.json();
 		if (response.success) {
-			return router.push('/allNotes');
+			return router.push('/');
 		}
 		return alert('Error, please try again');
 	};
 
 	const handleClick = () => {
-		router.push('/allNotes');
+		router.push('/');
 	};
 
 	return (
@@ -80,11 +80,7 @@ const UpdateNote = ({ params }: UpdateNoteProps) => {
 			{apiSuccess && (
 				<>
 					<div className='flex justify-between items-center my-2 py-2'>
-						<Link
-							href='/allNotes'
-							className='cursor-pointer'
-							onClick={handleClick}
-						>
+						<Link href='/' className='cursor-pointer' onClick={handleClick}>
 							<GoArrowLeft size='30px' />
 						</Link>
 						<RiShareLine size='30px' className='cursor-pointer' />

@@ -6,13 +6,14 @@ import { ButtonTheme } from '../ButtonTheme';
 
 type DeleteTileProps = {
 	id: string;
-	fetchNotes: () => void;
+	fetchDetails: () => void;
+	link: string;
 };
 
-const DeleteTile = ({ id, fetchNotes }: DeleteTileProps) => {
+const DeleteTile = ({ id, fetchDetails, link }: DeleteTileProps) => {
 	const deleteData = async () => {
 		const data = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}api/notes/${id}`,
+			`${process.env.NEXT_PUBLIC_API_URL}api/${link}/${id}`,
 			{
 				method: 'DELETE',
 				body: JSON.stringify({
@@ -22,19 +23,19 @@ const DeleteTile = ({ id, fetchNotes }: DeleteTileProps) => {
 		);
 		const response = await data.json();
 		if (response.success) {
-			return fetchNotes();
+			return fetchDetails();
 		}
 		return alert('Error, please try again');
 	};
 	return (
-		<div>
+		<>
 			<RiDeleteBin2Line
 				color={ButtonTheme()}
 				size='15px'
 				className='cursor-pointer'
 				onClick={deleteData}
 			/>
-		</div>
+		</>
 	);
 };
 

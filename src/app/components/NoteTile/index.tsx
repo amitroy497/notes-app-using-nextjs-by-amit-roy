@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useTheme } from 'next-themes';
 import { GrEdit } from 'react-icons/gr';
 
 import { currentFormatDateTime } from '@/lib/constants';
@@ -25,7 +24,6 @@ const NoteTile = ({
 	fetchNotes,
 }: NoteTileProps) => {
 	const router = useRouter();
-	const { theme } = useTheme();
 
 	const onlyDate = date.substring(0, date.indexOf(','));
 
@@ -47,7 +45,7 @@ const NoteTile = ({
 					className='cursor-pointer'
 					onClick={() => router.push(`/allNotes/${id}`)}
 				/>
-				<DeleteTile id={id} fetchNotes={fetchNotes} />
+				<DeleteTile id={id} fetchDetails={fetchNotes} link='notes' />
 			</section>
 		</article>
 	);

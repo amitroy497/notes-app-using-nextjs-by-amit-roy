@@ -1,25 +1,17 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
 import { FcTodoList } from 'react-icons/fc';
 import { GrNotes } from 'react-icons/gr';
 
-import { useToggle } from '@/hooks/UseToggle';
+type NavBarProps = {
+	handleClick: () => void;
+	showTodos: boolean;
+};
 
-const NavBar = () => {
-	const router = useRouter();
-	const { show: showTodos, toggle: toggleTodos } = useToggle(false);
-
-	const handleClick = (link: string) => {
-		router.push(link);
-		toggleTodos();
-	};
-
+const NavBar = ({ handleClick, showTodos }: NavBarProps) => {
 	return (
 		<div className='absolute bottom-[-28px] z-10 w-full flex justify-evenly items-center py-2'>
 			<div
 				className='flex flex-col items-center gap-2 font-bold'
-				onClick={() => handleClick('allNotes')}
+				onClick={() => handleClick()}
 				style={{ fontWeight: showTodos ? 'normal' : 'bold' }}
 			>
 				<GrNotes />
@@ -27,7 +19,7 @@ const NavBar = () => {
 			</div>
 			<div
 				className='flex flex-col items-center gap-2 font-bold'
-				onClick={() => handleClick('allTodos')}
+				onClick={() => handleClick()}
 				style={{ fontWeight: showTodos ? 'bold' : 'normal' }}
 			>
 				<FcTodoList />

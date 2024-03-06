@@ -1,10 +1,10 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import Link from 'next/link';
 
 import AddButton from '../components/AddButton';
 import AllNoteTiles from '../components/AllNoteTiles';
-import FooterButtons from '../components/NavBar';
 import Search from '../components/Search';
 
 const AllNotes = () => {
@@ -22,7 +22,9 @@ const AllNotes = () => {
 				{count} {count > 1 ? <>notes</> : <>note</>}
 			</h6>
 			<div className='absolute right-[55px] bottom-[62px]'>
-				<AddButton />
+				<Link href='/notePage'>
+					<AddButton />
+				</Link>
 			</div>
 			<div className='tileContainer mt-4 overflow-x-hidden overflow-y-auto'>
 				<AllNoteTiles getNotes={getNotes} />
