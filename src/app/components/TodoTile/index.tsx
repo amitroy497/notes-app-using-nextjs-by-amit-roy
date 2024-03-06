@@ -8,6 +8,7 @@ import {
 } from 'react-icons/ri';
 
 import { useToggle } from '@/hooks/UseToggle';
+import { GreyColor, WhiteThemeColor } from '@/lib/constants';
 
 import { ButtonTheme } from '../ButtonTheme';
 import DeleteTile from '../DeleteTile';
@@ -57,7 +58,7 @@ const TodoTile = ({
 	};
 
 	const styles = {
-		color: checkedStatus ? '#D3D3D3' : 'white',
+		color: checkedStatus ? GreyColor : WhiteThemeColor,
 	};
 	return (
 		<div className='flex justify-between items-center gap-2 p-3 bg-slate-400 text-black dark:text-white dark:bg-slate-800 rounded-xl'>

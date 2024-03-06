@@ -4,6 +4,7 @@ import { IoSearch } from 'react-icons/io5';
 
 import { useToggle } from '@/hooks/UseToggle';
 
+import { WhiteBlackTheme } from '../ButtonTheme';
 import SearchNotes from '../SearchNotes';
 
 const Search = () => {
@@ -14,7 +15,7 @@ const Search = () => {
 				<SearchNotes toggleSearch={toggleSearch} />
 			) : (
 				<IoSearch
-					color='white'
+					color={WhiteBlackTheme()}
 					size='20px'
 					className='cursor-pointer'
 					onClick={() => toggleSearch()}
