@@ -14,6 +14,7 @@ type NoteTileProps = {
 	body?: string;
 	date: string;
 	fetchNotes: () => void;
+	toggleSearch?: () => void;
 };
 
 const NoteTile = ({
@@ -22,6 +23,7 @@ const NoteTile = ({
 	body,
 	date,
 	fetchNotes,
+	toggleSearch,
 }: NoteTileProps) => {
 	const router = useRouter();
 
@@ -45,7 +47,12 @@ const NoteTile = ({
 					className='cursor-pointer'
 					onClick={() => router.push(`/allNotes/${id}`)}
 				/>
-				<DeleteTile id={id} fetchDetails={fetchNotes} link='notes' />
+				<DeleteTile
+					id={id}
+					fetchDetails={fetchNotes}
+					link='notes'
+					toggleSearch={toggleSearch}
+				/>
 			</section>
 		</article>
 	);

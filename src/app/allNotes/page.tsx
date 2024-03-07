@@ -9,14 +9,15 @@ import Search from '../components/Search';
 
 const AllNotes = () => {
 	const [count, setCount] = useState<number>(0);
+	const [notes, setNotes] = useState<string[]>();
+
 	const getNotes = useCallback((notes: any) => {
 		setCount(notes.length);
+		setNotes(notes);
 	}, []);
+
 	return (
 		<div className='notesPageHeight relative overflow-hidden'>
-			<div className='absolute top-4 right-2'>
-				<Search />
-			</div>
 			<h1 className='text-4xl font-bold my-4'>All Notes</h1>
 			<h6 className='text-base my-2'>
 				{count} {count > 1 ? <>notes</> : <>note</>}

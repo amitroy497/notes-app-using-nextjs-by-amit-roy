@@ -1,25 +1,45 @@
 'use client';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { IoSearch } from 'react-icons/io5';
 
 import { useToggle } from '@/hooks/UseToggle';
 
 import { WhiteBlackTheme } from '../ButtonTheme';
+import Modal from '../Modal';
 import SearchNotes from '../SearchNotes';
 
-const Search = () => {
+type SearchProps = {
+	notes: any;
+	fetchNotes: () => void;
+};
+
+const Search = ({ notes, fetchNotes }: SearchProps) => {
 	const { show: showSearch, toggle: toggleSearch } = useToggle(false);
+	const [noteHeader, setNoteHeader] = useState<string[]>([]);
+
+	const getStateUpSelectedTitle = (val: string) => {
+		console.log('stateUpTitle', val);
+	};
+
 	return (
 		<>
 			{showSearch ? (
-				<SearchNotes toggleSearch={toggleSearch} />
+				<Modal>
+					<SearchNotes
+						toggleSearch={toggleSearch}
+						items={notes}
+						fetchNotes={fetchNotes}
+					/>
+				</Modal>
 			) : (
-				<IoSearch
-					color={WhiteBlackTheme()}
-					size='20px'
-					className='cursor-pointer'
-					onClick={() => toggleSearch()}
-				/>
+				<div className='absolute top-4 right-2'>
+					<IoSearch
+						color={WhiteBlackTheme()}
+						size='20px'
+						className='cursor-pointer'
+						onClick={() => toggleSearch()}
+					/>
+				</div>
 			)}
 		</>
 	);

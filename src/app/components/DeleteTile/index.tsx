@@ -8,9 +8,15 @@ type DeleteTileProps = {
 	id: string;
 	fetchDetails: () => void;
 	link: string;
+	toggleSearch?: () => void;
 };
 
-const DeleteTile = ({ id, fetchDetails, link }: DeleteTileProps) => {
+const DeleteTile = ({
+	id,
+	fetchDetails,
+	link,
+	toggleSearch,
+}: DeleteTileProps) => {
 	const deleteData = async () => {
 		const data = await fetch(
 			`${process.env.NEXT_PUBLIC_API_URL}api/${link}/${id}`,
@@ -23,6 +29,7 @@ const DeleteTile = ({ id, fetchDetails, link }: DeleteTileProps) => {
 		);
 		const response = await data.json();
 		if (response.success) {
+			toggleSearch?.();
 			return fetchDetails();
 		}
 		return alert('Error, please try again');

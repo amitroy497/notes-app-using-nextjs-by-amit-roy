@@ -2,8 +2,9 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import NoteTile from '../NoteTile';
+import Search from '../Search';
 
-type NotesDetailsType = {
+export type NotesDetailsType = {
 	_id: string;
 	date: string;
 	header?: string;
@@ -30,6 +31,7 @@ const AllNoteTiles = ({ getNotes }: AllNoteTilesProps) => {
 
 	return (
 		<>
+			<Search notes={notes} fetchNotes={fetchNotes} />
 			{notes?.map((note: NotesDetailsType) => (
 				<div key={note?._id}>
 					<NoteTile {...note} fetchNotes={fetchNotes} />
