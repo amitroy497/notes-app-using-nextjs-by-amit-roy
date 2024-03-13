@@ -17,10 +17,6 @@ const Search = ({ notes, fetchNotes }: SearchProps) => {
 	const { show: showSearch, toggle: toggleSearch } = useToggle(false);
 	const [noteHeader, setNoteHeader] = useState<string[]>([]);
 
-	const getStateUpSelectedTitle = (val: string) => {
-		console.log('stateUpTitle', val);
-	};
-
 	return (
 		<>
 			{showSearch ? (

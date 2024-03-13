@@ -9,3 +9,5 @@ export const LightThemeBlack = '#000';
 export const WhiteThemeColor = '#fff';
 
 export const GreyColor = '#D3D3D3';
+
+export const MaxHeadingLength = 200;
